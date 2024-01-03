@@ -54,42 +54,42 @@ During the tear-down phase, all previously created assets, policies and contract
 
 | Property                        | Explanation|
 |------------------------------|------------------------------|
-| EXPERIMENT_DURATION_SEC                   | Duration of the experiment, during which the threads of the experiment are executed as often as possible.   |
-| EDC_NAMESPACE                    | Permanent identifier of the EDC and its version   |
-| BACKEND_SERVICE                     | An Supplier represents the end of the supply chain in the test scenario and manufactures the end product   |
-| MAX_NEGOTIATION_POLL_COUNT                     | An Supplier represents the end of the supply chain in the test scenario and manufactures the end product   |
-| LOOP_COUNT                     | An Supplier represents the end of the supply chain in the test scenario and manufactures the end product   |
-| THREAD_COUNT                     | An Supplier represents the end of the supply chain in the test scenario and manufactures the end product   |
-| INTERVALS_PER_SECOND                     | An Supplier represents the end of the supply chain in the test scenario and manufactures the end product   |
+| EXPERIMENT_DURATION_SEC                   | Duration of the experiment, during which the threads of the experiment are executed as often as possible. The unit is defined in seconds.  |
+| EDC_NAMESPACE                    | URL as an Permanent identifier of the EDC and its version.   |
+| BACKEND_SERVICE                     |  URL to reference the backend system of the EDCs.  | 
+| MAX_NEGOTIATION_POLL_COUNT                     | Number of maximum status checks of "FINALIZED" state of the negotiation between the two initiated EDCs Alice and Bob. |
+| MAX_TRANSFER_POLL_COUNT                     | Number of maximum status checks of "FINALIZED" state of the transfer between the two initiated EDCs Alice and Bob. |
+| INTERVALS_PER_SECOND                     | Number of simulated time intervals per second.  |
 
 ### OEM Parameters
 
 | Property                        | Explanation|
 |------------------------------|------------------------------|
-| OEM_ID=BPNL000000000001                  | An OEM or "Original Equipment Manufacturer" manufactures a part or component that is used in another company's product   |
-| OEM_MANAGEMENT_URL                    | An Supplier represents the end of the supply chain in the test scenario and manufactures the end product   |
-| OEM_PROTOCOL_URL                     | An Supplier represents the end of the supply chain in the test scenario and manufactures the end product   |
-| OEM_API_KEY                     | An Supplier represents the end of the supply chain in the test scenario and manufactures the end product   |
-| OEM_PLANTS                     | An Supplier represents the end of the supply chain in the test scenario and manufactures the end product   |
-| OEM_CARS_INITIAL                     | An Supplier represents the end of the supply chain in the test scenario and manufactures the end product   |
-| PARTS_PER_CAR                     | An Supplier represents the end of the supply chain in the test scenario and manufactures the end product   |
-| CARS_PRODUCED_PER_INTERVALL                     | An Supplier represents the end of the supply chain in the test scenario and manufactures the end product   |
+| OEM_ID                  | Unique identifier of the OEM (Business Partner Number).  |
+| OEM_MANAGEMENT_URL                    | URL referencing the Management API of the OEM's EDC.   |
+| OEM_PROTOCOL_URL                     | URL referencing the Dataspace Protocol of the OEM Connector.   |
+| OEM_API_KEY                     | Specific, secret key to access the Management API of the OEM's EDC.  |
+| OEM_PLANTS                     | Number of OEM plants manufacturing cars. Each plant is modeled as individual thread.  |
+| OEM_CARS_INITIAL                     |  Number of inital produced cars in the "SetUp" process for creating mockup data in the database for further processes |
+| PARTS_PER_CAR                     | Number of part twins requested by the OEM from the supplier during the production of a car.   |
+| CARS_PRODUCED_PER_INTERVALL                     | Number of cars produced by the OEM during a time interval per plant.   |
 
 ### Supplier Parameters
 
 | Property                        | Explanation|
 |------------------------------|------------------------------|
-| SUPPLIER_ID                 | An OEM or "Original Equipment Manufacturer" manufactures a part or component that is used in another company's product   |
-| SUPPLIER_MANAGEMENT_URL                    | An Supplier represents the end of the supply chain in the test scenario and manufactures the end product   |
-| SUPPLIER_PROTOCOL_URL                     | An Supplier represents the end of the supply chain in the test scenario and manufactures the end product   |
-| SUPPLIER_API_KEY                     | An Supplier represents the end of the supply chain in the test scenario and manufactures the end product   |
-| SUPPLIER_PLANTS                     | An Supplier represents the end of the supply chain in the test scenario and manufactures the end product   |
-| PARTS_PRODUCED_PER_INTERVALL                     | An Supplier represents the end of the supply chain in the test scenario and manufactures the end product   |
-| SUPPLIER_FLEET_MANAGERS                     | An Supplier represents the end of the supply chain in the test scenario and manufactures the end product   |
-| SUPPLIER_PARTS_PLANTS_COUNT                     | An Supplier represents the end of the supply chain in the test scenario and manufactures the end product   |
-| SUPPLIER_FLEET_COUNT                     | An Supplier represents the end of the supply chain in the test scenario and manufactures the end product   |
-| CARS_REQUESTED_PER_INTERVALL                     | An Supplier represents the end of the supply chain in the test scenario and manufactures the end product   |
-| SUPPLIER_PARTS_INITIAL                    | An Supplier represents the end of the supply chain in the test scenario and manufactures the end product   |
+| SUPPLIER_ID                 | Unique identifier of the Supplier (Business Partner Number)  |
+| SUPPLIER_MANAGEMENT_URL                    | URL referencing the Management API of the Supplier EDC.   |
+| SUPPLIER_PROTOCOL_URL                     | URL referencing the Dataspace Protocol of the Supplier Connector.    |
+| SUPPLIER_API_KEY                     |  Specific, secret key to access the Management API of the Supplier EDC.  |
+| SUPPLIER_PLANTS                     |  Number of supplier plants manufacturing parts. Each plant is modeled as individual thread. |
+| PARTS_PRODUCED_PER_INTERVALL                     |  Number of cars produced by the OEM during a time interval per plant.  |
+| SUPPLIER_FLEET_MANAGERS                     |  Number of employees requesting car twins.  |
+| SUPPLIER_PARTS_PLANTS_COUNT                     |  ???  |
+| SUPPLIER_FLEET_COUNT                     |  ???  |
+| CARS_REQUESTED_PER_INTERVALL                     |  Number of car twins requested by the supplier per time interval per employee.  |
+| SUPPLIER_PARTS_INITIAL                    | Number of inital produced parts in the "SetUp" process for creating mockup data in the database for further processes |
+| CONSUME_COUNT                   | Number of consumed part of the Supplier by the OEM. |
 
 # User Guide
 
@@ -117,5 +117,4 @@ Once all tools and software have been installed and the Tractus-X Dataspace has 
 3. As requested, define your local path where to save the test results.
 
 # Open Tasks:
-- Documentation of properties in README
 - Tear down currently deletes assets, policies, and contracts based on a counter.
