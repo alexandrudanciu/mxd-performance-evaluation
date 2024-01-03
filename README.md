@@ -74,5 +74,5 @@ Once all tools and software have been installed and the Tractus-X Dataspace has 
 3. As requested, define your local path where to save the test results.
 
 # Open Tasks:
-- Tear down currently deletes assets, policies, and contracts based on a counter.
 - Documentation of properties in README
+- Tear down currently deletes assets, policies, and contracts based on a counter.
