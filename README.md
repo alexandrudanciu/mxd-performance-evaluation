@@ -24,7 +24,7 @@ In the first stage of these performance tests, the EDC is simulated using Minimu
 
 # Test Design
 
-## Definition of Terms
+## Definition of General Terms
 | Term                         | Explanation|
 |------------------------------|------------------------------|
 | OEM                          | An OEM or "Original Equipment Manufacturer" manufactures a part or component that is used in another company's product   |
@@ -47,6 +47,49 @@ In order to test this section as realistically as possible, the process is carri
 
 ### Tear Down
 During the tear-down phase, all previously created assets, policies and contracts are deleted from the connectors. 
+
+## Definition of Properties (experiment.properties)
+
+### General Parameters
+
+| Property                        | Explanation|
+|------------------------------|------------------------------|
+| EXPERIMENT_DURATION_SEC                   | Duration of the experiment, during which the threads of the experiment are executed as often as possible.   |
+| EDC_NAMESPACE                    | Permanent identifier of the EDC and its version   |
+| BACKEND_SERVICE                     | An Supplier represents the end of the supply chain in the test scenario and manufactures the end product   |
+| MAX_NEGOTIATION_POLL_COUNT                     | An Supplier represents the end of the supply chain in the test scenario and manufactures the end product   |
+| LOOP_COUNT                     | An Supplier represents the end of the supply chain in the test scenario and manufactures the end product   |
+| THREAD_COUNT                     | An Supplier represents the end of the supply chain in the test scenario and manufactures the end product   |
+| INTERVALS_PER_SECOND                     | An Supplier represents the end of the supply chain in the test scenario and manufactures the end product   |
+
+### OEM Parameters
+
+| Property                        | Explanation|
+|------------------------------|------------------------------|
+| OEM_ID=BPNL000000000001                  | An OEM or "Original Equipment Manufacturer" manufactures a part or component that is used in another company's product   |
+| OEM_MANAGEMENT_URL                    | An Supplier represents the end of the supply chain in the test scenario and manufactures the end product   |
+| OEM_PROTOCOL_URL                     | An Supplier represents the end of the supply chain in the test scenario and manufactures the end product   |
+| OEM_API_KEY                     | An Supplier represents the end of the supply chain in the test scenario and manufactures the end product   |
+| OEM_PLANTS                     | An Supplier represents the end of the supply chain in the test scenario and manufactures the end product   |
+| OEM_CARS_INITIAL                     | An Supplier represents the end of the supply chain in the test scenario and manufactures the end product   |
+| PARTS_PER_CAR                     | An Supplier represents the end of the supply chain in the test scenario and manufactures the end product   |
+| CARS_PRODUCED_PER_INTERVALL                     | An Supplier represents the end of the supply chain in the test scenario and manufactures the end product   |
+
+### Supplier Parameters
+
+| Property                        | Explanation|
+|------------------------------|------------------------------|
+| SUPPLIER_ID                 | An OEM or "Original Equipment Manufacturer" manufactures a part or component that is used in another company's product   |
+| SUPPLIER_MANAGEMENT_URL                    | An Supplier represents the end of the supply chain in the test scenario and manufactures the end product   |
+| SUPPLIER_PROTOCOL_URL                     | An Supplier represents the end of the supply chain in the test scenario and manufactures the end product   |
+| SUPPLIER_API_KEY                     | An Supplier represents the end of the supply chain in the test scenario and manufactures the end product   |
+| SUPPLIER_PLANTS                     | An Supplier represents the end of the supply chain in the test scenario and manufactures the end product   |
+| PARTS_PRODUCED_PER_INTERVALL                     | An Supplier represents the end of the supply chain in the test scenario and manufactures the end product   |
+| SUPPLIER_FLEET_MANAGERS                     | An Supplier represents the end of the supply chain in the test scenario and manufactures the end product   |
+| SUPPLIER_PARTS_PLANTS_COUNT                     | An Supplier represents the end of the supply chain in the test scenario and manufactures the end product   |
+| SUPPLIER_FLEET_COUNT                     | An Supplier represents the end of the supply chain in the test scenario and manufactures the end product   |
+| CARS_REQUESTED_PER_INTERVALL                     | An Supplier represents the end of the supply chain in the test scenario and manufactures the end product   |
+| SUPPLIER_PARTS_INITIAL                    | An Supplier represents the end of the supply chain in the test scenario and manufactures the end product   |
 
 # User Guide
 
