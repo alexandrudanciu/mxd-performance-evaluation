@@ -85,11 +85,8 @@ During the tear-down phase, all previously created assets, policies and contract
 | SUPPLIER_PLANTS                     |  Number of supplier plants manufacturing parts. Each plant is modeled as individual thread. |
 | PARTS_PRODUCED_PER_INTERVALL                     |  Number of cars produced by the OEM during a time interval per plant.  |
 | SUPPLIER_FLEET_MANAGERS                     |  Number of employees requesting car twins.  |
-| SUPPLIER_PARTS_PLANTS_COUNT                     |  ???  |
-| SUPPLIER_FLEET_COUNT                     |  ???  |
 | CARS_REQUESTED_PER_INTERVALL                     |  Number of car twins requested by the supplier per time interval per employee.  |
 | SUPPLIER_PARTS_INITIAL                    | Number of inital produced parts in the "SetUp" process for creating mockup data in the database for further processes |
-| CONSUME_COUNT                   | Number of consumed part of the Supplier by the OEM. |
 
 # User Guide
 
