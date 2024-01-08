@@ -184,11 +184,20 @@
           <stringProp name="TestPlan.comments">Local Variables to be reset after each loop</stringProp>
         </UserParameters>
         <hashTree/>
-        <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="ID Counter" enabled="true">
+        <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="Provide ID Counter" enabled="true">
           <stringProp name="CounterConfig.start">${__intSum(1,${OEM_CARS_INITIAL})}</stringProp>
           <stringProp name="CounterConfig.end"></stringProp>
           <stringProp name="CounterConfig.incr">1</stringProp>
-          <stringProp name="CounterConfig.name">ID</stringProp>
+          <stringProp name="CounterConfig.name">PROVIDE_COUNTER</stringProp>
+          <stringProp name="CounterConfig.format"></stringProp>
+          <boolProp name="CounterConfig.per_user">false</boolProp>
+        </CounterConfig>
+        <hashTree/>
+        <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="Consume ID Counter" enabled="true">
+          <stringProp name="CounterConfig.start">1</stringProp>
+          <stringProp name="CounterConfig.end"></stringProp>
+          <stringProp name="CounterConfig.incr">1</stringProp>
+          <stringProp name="CounterConfig.name">CONSUME_COUNTER</stringProp>
           <stringProp name="CounterConfig.format"></stringProp>
           <boolProp name="CounterConfig.per_user">false</boolProp>
         </CounterConfig>
@@ -201,7 +210,7 @@
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
     &quot;@context&quot;: {},&#xd;
-    &quot;@id&quot;: &quot;${ID}&quot;, &#xd;
+    &quot;@id&quot;: &quot;${PROVIDE_COUNTER}&quot;, &#xd;
     &quot;properties&quot;: {&#xd;
         &quot;description&quot;: &quot;Product EDC Demo Asset&quot;&#xd;
     },&#xd;
@@ -265,7 +274,7 @@
         &quot;odrl&quot;: &quot;http://www.w3.org/ns/odrl/2/&quot;&#xd;
     },&#xd;
     &quot;@type&quot;: &quot;PolicyDefinitionRequestDto&quot;,&#xd;
-    &quot;@id&quot;: &quot;${ID}&quot;,&#xd;
+    &quot;@id&quot;: &quot;${PROVIDE_COUNTER}&quot;,&#xd;
     &quot;policy&quot;: {&#xd;
 		&quot;@type&quot;: &quot;Policy&quot;,&#xd;
 		&quot;odrl:permission&quot; : [{&#xd;
@@ -335,15 +344,15 @@
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
     &quot;@context&quot;: {},&#xd;
-    &quot;@id&quot;: &quot;${ID}&quot;,&#xd;
+    &quot;@id&quot;: &quot;${PROVIDE_COUNTER}&quot;,&#xd;
     &quot;@type&quot;: &quot;ContractDefinition&quot;,&#xd;
-    &quot;accessPolicyId&quot;: &quot;${ID}&quot;,&#xd;
-    &quot;contractPolicyId&quot;: &quot;${ID}&quot;,&#xd;
+    &quot;accessPolicyId&quot;: &quot;${PROVIDE_COUNTER}&quot;,&#xd;
+    &quot;contractPolicyId&quot;: &quot;${PROVIDE_COUNTER}&quot;,&#xd;
     &quot;assetsSelector&quot; : {&#xd;
         &quot;@type&quot; : &quot;CriterionDto&quot;,&#xd;
         &quot;operandLeft&quot;: &quot;${EDC_NAMESPACE}id&quot;,&#xd;
         &quot;operator&quot;: &quot;=&quot;,&#xd;
-        &quot;operandRight&quot;: &quot;${ID}&quot;&#xd;
+        &quot;operandRight&quot;: &quot;${PROVIDE_COUNTER}&quot;&#xd;
     }&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -403,8 +412,7 @@
     &quot;counterPartyAddress&quot;: &quot;${SUPPLIER_PROTOCOL_URL}&quot;,&#xd;
     &quot;protocol&quot;: &quot;dataspace-protocol-http&quot;,&#xd;
     &quot;querySpec&quot;: {&#xd;
-        &quot;offset&quot;: 0,&#xd;
-        &quot;limit&quot;: 50&#xd;
+        &quot;offset&quot;: 0&#xd;
     }&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -440,7 +448,7 @@
           <hashTree/>
           <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor" enabled="true">
             <stringProp name="JSONPostProcessor.referenceNames">CONTRACT_OFFER_ID</stringProp>
-            <stringProp name="JSONPostProcessor.jsonPathExprs">${__eval($[&apos;dcat:dataset&apos;][?(@.id==&quot;${ID}&quot;)][&apos;odrl:hasPolicy&apos;][&apos;@id&apos;])}</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">${__eval($[&apos;dcat:dataset&apos;][?(@.id==&quot;${CONSUME_COUNTER}&quot;)][&apos;odrl:hasPolicy&apos;][&apos;@id&apos;])}</stringProp>
             <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
           </JSONPostProcessor>
           <hashTree/>
@@ -462,13 +470,13 @@
 	&quot;providerId&quot;: &quot;${SUPPLIER_ID}&quot;,&#xd;
 	&quot;offer&quot;: {&#xd;
 		&quot;offerId&quot;: &quot;${CONTRACT_OFFER_ID}&quot;,&#xd;
-		&quot;assetId&quot;: &quot;${ID}&quot;,&#xd;
+		&quot;assetId&quot;: &quot;${CONSUME_COUNTER}&quot;,&#xd;
 		&quot;policy&quot;: {&#xd;
 			&quot;@context&quot;: &quot;http://www.w3.org/ns/odrl.jsonld&quot;,&#xd;
 			&quot;@type&quot;: &quot;odrl:Set&quot;,&#xd;
-			&quot;@id&quot;: &quot;${ID}&quot;,&#xd;
+			&quot;@id&quot;: &quot;${CONSUME_COUNTER}&quot;,&#xd;
 			&quot;odrl:permission&quot; : {&#xd;
-				&quot;odrl:target&quot;: &quot;${ID}&quot;,&#xd;
+				&quot;odrl:target&quot;: &quot;${CONSUME_COUNTER}&quot;,&#xd;
 				&quot;odrl:action&quot;: {&#xd;
 					&quot;odrl:type&quot;: &quot;USE&quot;&#xd;
 				},&#xd;
@@ -485,7 +493,7 @@
 			&quot;odrl:prohibition&quot;: [],&#xd;
 			&quot;odrl:obligation&quot;: [],&#xd;
 			&quot;odrl:target&quot;: {&#xd;
-				&quot;@id&quot;: &quot;${ID}&quot;&#xd;
+				&quot;@id&quot;: &quot;${CONSUME_COUNTER}&quot;&#xd;
 			}&#xd;
 	  	}&#xd;
 	},&#xd;
@@ -653,7 +661,7 @@ if(!&quot;FINALIZED&quot;.equals( currentState)) {
 	&quot;counterPartyAddress&quot;: &quot;${SUPPLIER_PROTOCOL_URL}&quot;,&#xd;
 	&quot;connectorId&quot;: &quot;${SUPPLIER_ID}&quot;,&#xd;
 	&quot;contractId&quot;: &quot;${CONTRACT_AGREEMENT_ID}&quot;,&#xd;
-	&quot;assetId&quot;: &quot;${ID}&quot;,&#xd;
+	&quot;assetId&quot;: &quot;${CONSUME_COUNTER}&quot;,&#xd;
 	&quot;dataDestination&quot;: {&#xd;
 	   &quot;type&quot;: &quot;HttpProxy&quot;&#xd;
 	},&#xd;
@@ -1227,8 +1235,7 @@ if(!&quot;STARTED&quot;.equals( currentState)) {
     &quot;counterPartyAddress&quot;: &quot;${OEM_PROTOCOL_URL}&quot;,&#xd;
     &quot;protocol&quot;: &quot;dataspace-protocol-http&quot;,&#xd;
     &quot;querySpec&quot;: {&#xd;
-        &quot;offset&quot;: 0,&#xd;
-        &quot;limit&quot;: 50&#xd;
+        &quot;offset&quot;: 0&#xd;
     }&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>

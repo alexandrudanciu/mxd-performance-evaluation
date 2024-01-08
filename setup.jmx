@@ -77,6 +77,10 @@
         <stringProp name="TestPlan.comments">Defining a test for the processes &quot;Create Asset&quot;, &quot;Create Policy&quot; and &quot;Create Contract Definition&quot; of the supplier</stringProp>
       </ThreadGroup>
       <hashTree>
+        <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+          <stringProp name="ConstantTimer.delay">500</stringProp>
+        </ConstantTimer>
+        <hashTree/>
         <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="ID Counter" enabled="true">
           <stringProp name="CounterConfig.start">1</stringProp>
           <stringProp name="CounterConfig.end"></stringProp>
@@ -171,7 +175,7 @@
 					&quot;odrl:operator&quot; : {&#xd;
                         &quot;@id&quot;: &quot;odrl:eq&quot;&#xd;
                     },&#xd;
-					&quot;odrl:rightOperand&quot; : &quot;${SUPPLIER_ID}&quot;&#xd;
+					&quot;odrl:rightOperand&quot; : &quot;${OEM_ID}&quot;&#xd;
 				}]&#xd;
 			}&#xd;
 		}]&#xd;
@@ -450,6 +454,10 @@
         <stringProp name="TestPlan.comments">Defining a test for the processes &quot;Create Asset&quot;, &quot;Create Policy&quot; and &quot;Create Contract Definition&quot; of the OEM</stringProp>
       </ThreadGroup>
       <hashTree>
+        <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+          <stringProp name="ConstantTimer.delay">500</stringProp>
+        </ConstantTimer>
+        <hashTree/>
         <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="ID Counter" enabled="true">
           <stringProp name="CounterConfig.start">1</stringProp>
           <stringProp name="CounterConfig.end"></stringProp>
@@ -544,7 +552,7 @@
 					&quot;odrl:operator&quot; : {&#xd;
                         &quot;@id&quot;: &quot;odrl:eq&quot;&#xd;
                     },&#xd;
-					&quot;odrl:rightOperand&quot; : &quot;${OEM_ID}&quot;&#xd;
+					&quot;odrl:rightOperand&quot; : &quot;${SUPPLIER_ID}&quot;&#xd;
 				}]&#xd;
 			}&#xd;
 		}]&#xd;

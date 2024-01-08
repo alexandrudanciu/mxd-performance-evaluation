@@ -44,7 +44,7 @@
       <PostThreadGroup guiclass="PostThreadGroupGui" testclass="PostThreadGroup" testname="OEM Thread Group" enabled="true">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Schleifen-Controller (Loop Controller)" enabled="true">
-          <stringProp name="LoopController.loops">10000</stringProp>
+          <stringProp name="LoopController.loops">1</stringProp>
           <boolProp name="LoopController.continue_forever">false</boolProp>
         </elementProp>
         <stringProp name="ThreadGroup.num_threads">1</stringProp>
@@ -55,6 +55,10 @@
         <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
       </PostThreadGroup>
       <hashTree>
+        <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+          <stringProp name="ConstantTimer.delay">500</stringProp>
+        </ConstantTimer>
+        <hashTree/>
         <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="ID Counter" enabled="true">
           <stringProp name="CounterConfig.start">1</stringProp>
           <stringProp name="CounterConfig.end"></stringProp>
@@ -94,8 +98,6 @@
     &quot;@vocab&quot;: &quot;https://w3id.org/edc/v0.0.1/ns/&quot;&#xd;
   },&#xd;
   &quot;@type&quot;: &quot;QuerySpec&quot;,&#xd;
-  &quot;offset&quot;: 5,&#xd;
-  &quot;limit&quot;: 10,&#xd;
   &quot;sortOrder&quot;: &quot;DESC&quot;,&#xd;
   &quot;filterExpression&quot;: []&#xd;
 }</stringProp>
@@ -132,15 +134,15 @@
           <hashTree/>
           <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor" enabled="true">
             <stringProp name="JSONPostProcessor.referenceNames">OEM_Assets_ID</stringProp>
-            <stringProp name="JSONPostProcessor.jsonPathExprs">$..id</stringProp>
-            <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$[*][&apos;@id&apos;]</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers">-1</stringProp>
           </JSONPostProcessor>
           <hashTree/>
         </hashTree>
-        <ForeachController guiclass="ForeachControlPanel" testclass="ForeachController" testname="Looping through Asset ID List" enabled="false">
-          <stringProp name="ForeachController.inputVal">OEM_Assets_ID</stringProp>
+        <ForeachController guiclass="ForeachControlPanel" testclass="ForeachController" testname="Looping through Asset ID List" enabled="true">
+          <stringProp name="ForeachController.inputVal">OEM_Assets_ID_</stringProp>
           <stringProp name="ForeachController.returnVal">ID_Counter</stringProp>
-          <boolProp name="ForeachController.useSeparator">true</boolProp>
+          <boolProp name="ForeachController.useSeparator">false</boolProp>
         </ForeachController>
         <hashTree>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Delete Asset" enabled="true">
@@ -281,10 +283,10 @@
         </ResultCollector>
         <hashTree/>
       </hashTree>
-      <PostThreadGroup guiclass="PostThreadGroupGui" testclass="PostThreadGroup" testname="Supplier Thread Group" enabled="false">
+      <PostThreadGroup guiclass="PostThreadGroupGui" testclass="PostThreadGroup" testname="Supplier Thread Group" enabled="true">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Schleifen-Controller (Loop Controller)" enabled="true">
-          <stringProp name="LoopController.loops">10000</stringProp>
+          <stringProp name="LoopController.loops">1</stringProp>
           <boolProp name="LoopController.continue_forever">false</boolProp>
         </elementProp>
         <stringProp name="ThreadGroup.num_threads">1</stringProp>
@@ -295,6 +297,10 @@
         <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
       </PostThreadGroup>
       <hashTree>
+        <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+          <stringProp name="ConstantTimer.delay">500</stringProp>
+        </ConstantTimer>
+        <hashTree/>
         <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="ID Counter" enabled="true">
           <stringProp name="CounterConfig.start">100</stringProp>
           <stringProp name="CounterConfig.end"></stringProp>
