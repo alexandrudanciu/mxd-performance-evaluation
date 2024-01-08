@@ -88,6 +88,8 @@ During the tear-down phase, all previously created assets, policies and contract
 | CARS_REQUESTED_PER_INTERVALL                     |  Number of car twins requested by the supplier per time interval per employee.  |
 | SUPPLIER_PARTS_INITIAL                    | Number of inital produced parts in the "SetUp" process for creating mockup data in the database for further processes |
 
+## Test results
+### 
 # User Guide
 
 ## Installation of the required software

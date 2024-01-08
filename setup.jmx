@@ -9,7 +9,7 @@
           <elementProp name="OEM_ID" elementType="Argument">
             <stringProp name="Argument.name">OEM_ID</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
-            <stringProp name="Argument.value">${__P(OEM_ID, BPNL000000000002)}</stringProp>
+            <stringProp name="Argument.value">${__P(OEM_ID, BPNL000000000001)}</stringProp>
           </elementProp>
           <elementProp name="OEM_MANAGEMENT_URL" elementType="Argument">
             <stringProp name="Argument.name">OEM_MANAGEMENT_URL</stringProp>
@@ -33,7 +33,7 @@
           </elementProp>
           <elementProp name="SUPPLIER_ID" elementType="Argument">
             <stringProp name="Argument.name">SUPPLIER_ID</stringProp>
-            <stringProp name="Argument.value">${__P(SUPPLIER_ID, BPNL000000000001)}</stringProp>
+            <stringProp name="Argument.value">${__P(SUPPLIER_ID, BPNL000000000002)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="SUPPLIER_MANAGEMENT_URL" elementType="Argument">
@@ -54,6 +54,11 @@
           <elementProp name="SUPPLIER_PARTS_INITIAL" elementType="Argument">
             <stringProp name="Argument.name">SUPPLIER_PARTS_INITIAL</stringProp>
             <stringProp name="Argument.value">${__P(SUPPLIER_PARTS_INITIAL, 1000)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="EDC_NAMESPACE" elementType="Argument">
+            <stringProp name="Argument.name">EDC_NAMESPACE</stringProp>
+            <stringProp name="Argument.value">${__P(EDC_NAMESPACE, https://w3id.org/edc/v0.0.1/ns/)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
         </collectionProp>
@@ -238,7 +243,7 @@
     &quot;contractPolicyId&quot;: &quot;${ID}&quot;,&#xd;
     &quot;assetsSelector&quot; : {&#xd;
         &quot;@type&quot; : &quot;CriterionDto&quot;,&#xd;
-        &quot;operandLeft&quot;: &quot;${EDC_NAMESPDACE}id&quot;,&#xd;
+        &quot;operandLeft&quot;: &quot;${EDC_NAMESPACE}id&quot;,&#xd;
         &quot;operator&quot;: &quot;=&quot;,&#xd;
         &quot;operandRight&quot;: &quot;${ID}&quot;&#xd;
     }&#xd;
@@ -615,7 +620,7 @@
     &quot;contractPolicyId&quot;: &quot;${ID}&quot;,&#xd;
     &quot;assetsSelector&quot; : {&#xd;
         &quot;@type&quot; : &quot;CriterionDto&quot;,&#xd;
-        &quot;operandLeft&quot;: &quot;${EDC_NAMESPDACE}id&quot;,&#xd;
+        &quot;operandLeft&quot;: &quot;${EDC_NAMESPACE}id&quot;,&#xd;
         &quot;operator&quot;: &quot;=&quot;,&#xd;
         &quot;operandRight&quot;: &quot;${ID}&quot;&#xd;
     }&#xd;

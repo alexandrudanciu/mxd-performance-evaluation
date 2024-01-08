@@ -18,5 +18,5 @@ jmeter_bin="$JMETER_HOME/bin/jmeter"
 for file in "${jmeter_files[@]}"
 do
     echo "Executing JMeter script: $file"
-    $jmeter_bin -n -t $file -l "test_summary.json" -q experiment.properties
+    $jmeter_bin -n -t $file -l test_summary.jtl -q small_experiment.properties -e -o report
 done
