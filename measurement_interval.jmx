@@ -405,15 +405,22 @@
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;@context&quot;: {&#xd;
-        &quot;@vocab&quot;: &quot;https://w3id.org/edc/v0.0.1/ns/&quot;&#xd;
-    },&#xd;
-    &quot;@type&quot;: &quot;CatalogRequest&quot;,&#xd;
-    &quot;counterPartyAddress&quot;: &quot;${SUPPLIER_PROTOCOL_URL}&quot;,&#xd;
-    &quot;protocol&quot;: &quot;dataspace-protocol-http&quot;,&#xd;
-    &quot;querySpec&quot;: {&#xd;
-        &quot;offset&quot;: 0&#xd;
+  &quot;@context&quot;: {&#xd;
+    &quot;@vocab&quot;: &quot;https://w3id.org/edc/v0.0.1/ns/&quot;&#xd;
+  },&#xd;
+  &quot;@type&quot;: &quot;CatalogRequest&quot;,&#xd;
+  &quot;counterPartyAddress&quot;: &quot;${SUPPLIER_PROTOCOL_URL}&quot;,&#xd;
+  &quot;protocol&quot;: &quot;dataspace-protocol-http&quot;,&#xd;
+  &quot;querySpec&quot;: {&#xd;
+    &quot;offset&quot;: 0,&#xd;
+    &quot;limit&quot;: 10,&#xd;
+    &quot;filterExpression&quot;: {&#xd;
+      &quot;@type&quot;: &quot;CriterionDto&quot;,&#xd;
+      &quot;operandLeft&quot;: &quot;https://w3id.org/edc/v0.0.1/ns/id&quot;,&#xd;
+      &quot;operator&quot;: &quot;=&quot;,&#xd;
+      &quot;operandRight&quot;: &quot;${CONSUME_COUNTER}&quot;&#xd;
     }&#xd;
+  }&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
@@ -423,7 +430,7 @@
           <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">false</boolProp>
           <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
           <boolProp name="HTTPSampler.BROWSER_COMPATIBLE_MULTIPART">false</boolProp>
           <boolProp name="HTTPSampler.image_parser">false</boolProp>
@@ -1235,7 +1242,14 @@ if(!&quot;STARTED&quot;.equals( currentState)) {
     &quot;counterPartyAddress&quot;: &quot;${OEM_PROTOCOL_URL}&quot;,&#xd;
     &quot;protocol&quot;: &quot;dataspace-protocol-http&quot;,&#xd;
     &quot;querySpec&quot;: {&#xd;
-        &quot;offset&quot;: 0&#xd;
+        &quot;offset&quot;: 0,&#xd;
+        &quot;limit&quot;: 10,&#xd;
+        &quot;filterExpression&quot;: {&#xd;
+      	&quot;@type&quot;: &quot;CriterionDto&quot;,&#xd;
+      	&quot;operandLeft&quot;: &quot;https://w3id.org/edc/v0.0.1/ns/id&quot;,&#xd;
+      	&quot;operator&quot;: &quot;=&quot;,&#xd;
+      	&quot;operandRight&quot;: &quot;${CONSUME_COUNT}&quot;&#xd;
+    }&#xd;
     }&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
