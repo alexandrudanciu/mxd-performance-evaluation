@@ -88,8 +88,6 @@ During the tear-down phase, all previously created assets, policies and contract
 | CARS_REQUESTED_PER_INTERVALL                     |  Number of car twins requested by the supplier per time interval per employee.  |
 | SUPPLIER_PARTS_INITIAL                    | Number of inital produced parts in the "SetUp" process for creating mockup data in the database for further processes |
 
-## Test results
-### 
 # User Guide
 
 ## Installation of the required software
@@ -111,9 +109,27 @@ https://www.java.com/de/download/manual.jsp
 ## Running the Evaluation
 Once all tools and software have been installed and the Tractus-X Dataspace has been deployed as explained in the wiki, the test can be executed:
 
-1. [OPTIONAL] Review and update the connectors properties in the file connector.properties. A brief explanation of all properties can be found in the User Guide of this document.
-2. Execute the run_experiment.sh script.
-3. As requested, define your local path where to save the test results.
+1. [OPTIONAL] Review and update the connectors properties in the three different .properties files. A brief explanation of all properties can be found in the User Guide of this document.
+2. Execute the run_experiment.sh script. To do this, enter the corresponding arguments (two required), on which parameters the execution should be carried out and which of the three phases of the experiment (as described in the test design) should be executed.
 
-# Open Tasks:
-- Tear down currently deletes assets, policies, and contracts based on a counter.
+**.properties -files: (First argument)**
+S = small_experiment.properties (default values: Supplier/OEM Plants = 1, Initial cars/parts = 10000)
+M = medium_experiment.properties (default values: Supplier/OEM Plants = 5, Initial cars/parts = 100000)
+L = medium_experiment.properties (default values: Supplier/OEM Plants = 10, Initial cars/parts = 1000000)
+
+**.jmx -files: (Second argument)**
+S = Execution of setup.jmx
+M = Execution of measurement.jmx
+T = Execution of tear_down.jmx
+SMT = Sequential execution of all three files
+
+3. Enjoy the test results!
+
+## Test results
+After executing the shell script, the test results can be viewed at /Output/measurement_interval/index.html.
+Of relevance is the sub-item "Statistics" in index.html. This sub-item contains, among other things:
+Executions = Number of processes performed
+Response Time (ms)= Number in milliseconds of how long it takes the EDC to respond
+Throughput = Ratio of executions to response time
+Network (KB/sec) = Data throughput of the EDC in KB 
+All further explanations can be found in the JMeter documentation: https://jmeter.apache.org/usermanual/generating-dashboard.html

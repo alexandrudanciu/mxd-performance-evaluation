@@ -18,7 +18,7 @@ if [ -z "$1" ]; then
 fi
 
 if [ -z "$2" ]; then
-    echo "Please define the phase of the test execution by specifying the JMeter script (S = setup.jmx, M = measurement_interval.jmx, T = tear_down.jmx and SMT = )"
+    echo "Please define the phase of the test execution by specifying the JMeter script (S = setup.jmx, M = measurement_interval.jmx, T = tear_down.jmx and SMT = Sequential execution of all scripts)"
     exit 1
 fi
 
