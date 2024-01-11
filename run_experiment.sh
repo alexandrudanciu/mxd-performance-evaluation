@@ -68,12 +68,12 @@ echo "*** Property: $experiment_property End ***"
 echo "*** Performance Test Start ***"
 if [ -z "$jmeter_script" ]; then
   echo "Executing all scripts in order S, M && T"
-  $jmeter_binary -n -t setup.jmx -l output/setup.jtl -q experiment_property
-  $jmeter_binary -n -t measurement_interval.jmx -l output/measurement_interval.jtl -q experiment_property -e -o output/dashboard
-  $jmeter_binary -n -t tear_down.jmx -l output/tear_down.jtl -q experiment_property
+  $jmeter_binary -n -t setup.jmx -l output/setup.jtl -q $experiment_property
+  $jmeter_binary -n -t measurement_interval.jmx -l output/measurement_interval.jtl -q $experiment_property -e -o output/dashboard
+  $jmeter_binary -n -t tear_down.jmx -l output/tear_down.jtl -q $experiment_property
 else
   echo "Executing script: $jmeter_script"
-  $jmeter_binary -n -t $jmeter_script -l output/measurement_interval.jtl -q experiment_property -e -o output/dashboard
+  $jmeter_binary -n -t $jmeter_script -l output/measurement.jtl -q $experiment_property -e -o output/dashboard
 fi
 echo "*** Performance Test End ***"
 
