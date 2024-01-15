@@ -92,7 +92,8 @@ During the tear-down phase, all previously created assets, policies and contract
 
 ### Visualization
 The number of times the processes, which depicts the production of the cars, the parts required for them and the invoices created for them, are executed in the test setup depends on the two parameters "OEM_PLANTS" and "SUPPLIER_PLANTS". This relationship is illustrated in the following figure:
-!["Dependency between OEM and Supplier"](/Supplier_OEM_Dependencies.png)
+<img src="Supplier_OEM_Dependencies.png" alt="Dependency between OEM and Supplier" width="200"/>
+
 
 # User Guide
 
