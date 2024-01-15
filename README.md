@@ -88,6 +88,12 @@ During the tear-down phase, all previously created assets, policies and contract
 | CARS_REQUESTED_PER_INTERVALL                     |  Number of car twins requested by the supplier per time interval per employee.  |
 | SUPPLIER_PARTS_INITIAL                    | Number of inital produced parts in the "SetUp" process for creating mockup data in the database for further processes |
 
+## Functional structure in dependency to the parameter
+
+### Visualization
+The number of times the processes, which depicts the production of the cars, the parts required for them and the invoices created for them, are executed in the test setup depends on the two parameters "OEM_PLANTS" and "SUPPLIER_PLANTS". This relationship is illustrated in the following figure:
+!["Dependency between OEM and Supplier"](/Supplier_OEM_Dependencies.png)
+
 # User Guide
 
 ## Installation of the required software
