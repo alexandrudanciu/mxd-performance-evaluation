@@ -32,7 +32,8 @@ In the first stage of these performance tests, the EDC is simulated using Minimu
 
 ## Test Setup
 The relationship between the test setup and the setup of the Minimum Tractus-X Dataspace is visualized in the following figure. It should be emphasized that both the OEM and the supplier act as data recipients and senders. 
-!["Visualization of the test setup"](/Test_SetUp.png)
+
+<img src="Test_SetUp.png" alt="Visualization of the test setup" width="1000"/>
 
 ### Deployment of the Test
 In order to create a test environment that is as realistic as possible, a deployment in a Kubernetes cluster is used for the test, which in turn deploys a worker node. This worker node of the cluster is characterized by the deployment of two EDCs, each for OEM and supplier and the respective connectors. The contents of the two EDCs are stored in a Postgres database.
@@ -129,12 +130,12 @@ Once all tools and software have been installed and the Tractus-X Dataspace has 
 1. [OPTIONAL] Review and update the connectors properties in the three different .properties files. A brief explanation of all properties can be found in the User Guide of this document.
 2. Execute the run_experiment.sh script. To do this, enter the corresponding arguments (two required), on which parameters the execution should be carried out and which of the three phases of the experiment (as described in the test design) should be executed.
 
-**.properties -files: (First argument)**
+**.properties -files "-q": (First argument)**
 S = small_experiment.properties (default values: Supplier/OEM Plants = 1, Initial cars/parts = 10000)
 M = medium_experiment.properties (default values: Supplier/OEM Plants = 5, Initial cars/parts = 100000)
 L = medium_experiment.properties (default values: Supplier/OEM Plants = 10, Initial cars/parts = 1000000)
 
-**.jmx -files: (Second argument)**
+**.jmx -files "-t": (Second argument)**
 S = Execution of setup.jmx
 M = Execution of measurement.jmx
 T = Execution of tear_down.jmx
