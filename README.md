@@ -100,7 +100,7 @@ During the tear-down phase, all previously created assets, policies and contract
 ### Visualization
 The number of times the processes, which depicts the execution of the production of the cars, the parts required for them and the invoices created for them, are executed in the test setup depends on the three parameters "OEM_PLANTS", "SUPPLIER_PLANTS" and "SUPPLIER FLEET MANAGER". This relationship is illustrated in the following figure:
 
-<img src="Supplier_OEM_Dependencies.png" alt="Dependency between OEM and Supplier" width="1000"/>
+<img src="Supplier_OEM.png" alt="Dependency between OEM and Supplier" width="1000"/>
 
 The sub-process of executing the above processes is characterized by the number of cars tested. The parameter "OEM_CARS_INITIAL" can be used to define the number of mock-up cars to be created in the setup.jmx. This parameter is then passed to the measurement_interval.jmx and defines the start of the number of cars produced there (starting with counter amount 1).  
 
@@ -131,23 +131,33 @@ Once all tools and software have been installed and the Tractus-X Dataspace has 
 2. Execute the run_experiment.sh script. To do this, enter the corresponding arguments (two required), on which parameters the execution should be carried out and which of the three phases of the experiment (as described in the test design) should be executed.
 
 **.properties -files "-q": (First argument)**
-S = small_experiment.properties (default values: Supplier/OEM Plants = 1, Initial cars/parts = 10000)
-M = medium_experiment.properties (default values: Supplier/OEM Plants = 5, Initial cars/parts = 100000)
-L = medium_experiment.properties (default values: Supplier/OEM Plants = 10, Initial cars/parts = 1000000)
+
+| Naming                        | Default Values               |
+|------------------------------|------------------------------|
+| S = small_experiment.properties     | Supplier/OEM Plants = 1, Initial cars/parts = 10000  |
+| M = medium_experiment.properties    | Supplier/OEM Plants = 5, Initial cars/parts = 100000  |
+| L = medium_experiment.properties     | Supplier/OEM Plants = 10, Initial cars/parts = 1000000  |
 
 **.jmx -files "-t": (Second argument)**
-S = Execution of setup.jmx
-M = Execution of measurement.jmx
-T = Execution of tear_down.jmx
-SMT = Sequential execution of all three files
+| Letter                       | Execution of            |
+|------------------------------|------------------------------|
+| S    | setup.jmx  |
+| M  | measurement.jmx  |
+| T    | tear_down.jmx  |
+| SMT    | Sequential execution of all three files  |
 
 3. Enjoy the test results!
 
 ## Test results
 After executing the shell script, the test results can be viewed at /Output/measurement_interval/index.html.
 Of relevance is the sub-item "Statistics" in index.html. This sub-item contains, among other things:
-Executions = Number of processes performed
-Response Time (ms)= Number in milliseconds of how long it takes the EDC to respond
-Throughput = Ratio of executions to response time
-Network (KB/sec) = Data throughput of the EDC in KB 
+
+| Naming                        | Explanation               |
+|------------------------------|------------------------------|
+| Executions     | Number of processes performed  |
+| Response Time (ms)   | Number in milliseconds of how long it takes the EDC to respond  |
+| Throughput    | Ratio of executions to response time  |
+| Network (KB/sec)    | Data throughput of the EDC in KB   |
+
+
 All further explanations can be found in the JMeter documentation: https://jmeter.apache.org/usermanual/generating-dashboard.html
