@@ -33,13 +33,13 @@ In the first stage of these performance tests, the EDC is simulated using Minimu
 ## Test Setup
 The relationship between the test setup and the setup of the Minimum Tractus-X Dataspace is visualized in the following figure. It should be emphasized that both the OEM and the supplier act as data recipients and senders. 
 
-<img src="/Graphics/Test_SetUp.svg" alt="Visualization of the test setup" width="1000"/>
+<img src="/Graphics/TestSetup.svg" alt="Visualization of the test setup" width="1000"/>
 
 ### Deployment of the Test
 In order to create a test environment that is as realistic as possible, a deployment in a Kubernetes cluster is used for the test, which in turn deploys a worker node. This worker node of the cluster is characterized by the deployment of two EDCs, each for OEM and supplier and the respective connectors. The contents of the two EDCs are stored in a Postgres database.
 The actual test and thus the workload for the EDCs is carried out by a JMeter script. The entire context is visualized below.
 
-<img src="/Graphics/Deployment_SetUp.svg" alt="Deployment SetUp" width="1000"/>
+<img src="/Graphics/Test_Deployment.svg" alt="Deployment SetUp" width="1000"/>
 
 ## Functional structure of the test
 The experiment is divided into three different phases. Each phase is implemented as own .jmx file.
