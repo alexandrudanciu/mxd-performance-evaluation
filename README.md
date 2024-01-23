@@ -128,7 +128,7 @@ https://www.java.com/de/download/manual.jsp
 Once all tools and software have been installed and the Tractus-X Dataspace has been deployed as explained in the wiki, the test can be executed:
 
 1. [OPTIONAL] Review and update the connectors properties in the three different .properties files. A brief explanation of all properties can be found in the User Guide of this document.
-2. Execute the run_experiment.sh script. To do this, enter the corresponding arguments (two required), on which parameters the execution should be carried out and which of the three phases of the experiment (as described in the test design) should be executed.
+2. Execute the run_experiment.sh script (Bash4 required). To do this, enter the corresponding arguments (two required), on which parameters the execution should be carried out and which of the three phases of the experiment (as described in the test design) should be executed.
 
 **.properties -files "-q": (First argument)**
 
