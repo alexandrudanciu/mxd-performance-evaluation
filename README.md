@@ -33,13 +33,13 @@ In the first stage of these performance tests, the EDC is simulated using Minimu
 ## Test Setup
 The relationship between the test setup and the setup of the Minimum Tractus-X Dataspace is visualized in the following figure. It should be emphasized that both the OEM and the supplier act as data recipients and senders. 
 
-<img src="Test_SetUp.png" alt="Visualization of the test setup" width="1000"/>
+<img src="/Graphics/Test_SetUp.svg" alt="Visualization of the test setup" width="1000"/>
 
 ### Deployment of the Test
 In order to create a test environment that is as realistic as possible, a deployment in a Kubernetes cluster is used for the test, which in turn deploys a worker node. This worker node of the cluster is characterized by the deployment of two EDCs, each for OEM and supplier and the respective connectors. The contents of the two EDCs are stored in a Postgres database.
 The actual test and thus the workload for the EDCs is carried out by a JMeter script. The entire context is visualized below.
 
-<img src="Deployment_SetUp.png" alt="Deployment SetUp" width="1000"/>
+<img src="/Graphics/Deployment_SetUp.svg" alt="Deployment SetUp" width="1000"/>
 
 ## Functional structure of the test
 The experiment is divided into three different phases. Each phase is implemented as own .jmx file.
@@ -100,11 +100,11 @@ During the tear-down phase, all previously created assets, policies and contract
 ### Visualization
 The number of times the processes, which depicts the execution of the production of the cars, the parts required for them and the invoices created for them, are executed in the test setup depends on the three parameters "OEM_PLANTS", "SUPPLIER_PLANTS" and "SUPPLIER FLEET MANAGER". This relationship is illustrated in the following figure:
 
-<img src="Supplier_OEM.png" alt="Dependency between OEM and Supplier" width="1000"/>
+<img src="/Graphics/Supplier_OEM.svg" alt="Dependency between OEM and Supplier" width="1000"/>
 
 The sub-process of executing the above processes is characterized by the number of cars tested. The parameter "OEM_CARS_INITIAL" can be used to define the number of mock-up cars to be created in the setup.jmx. This parameter is then passed to the measurement_interval.jmx and defines the start of the number of cars produced there (starting with counter amount 1).  
 
-<img src="Initial_Counter.png" alt="Initial Counter" width="1000"/>
+<img src="/Graphics/Initial_Counter.svg" alt="Initial Counter" width="1000"/>
 
 # User Guide
 
