@@ -725,7 +725,7 @@ if(!&quot;FINALIZED&quot;.equals( currentState)) {
         </TransactionController>
         <hashTree>
           <WhileController guiclass="WhileControllerGui" testclass="WhileController" testname="Transfer_State_Loop" enabled="true">
-            <stringProp name="WhileController.condition">${__jexl3(&quot;${TRANSFER_STATE}&quot; != &quot;STARTED&quot; &amp;&amp; 
+            <stringProp name="WhileController.condition">${__jexl3(&quot;${TRANSFER_STATE}&quot; != &quot;COMPLETED&quot; &amp;&amp; 
 ${__jm__Transfer_State_Loop__idx} &lt; ${MAX_TRANSFER_POLL_COUNT})}</stringProp>
             <stringProp name="TestPlan.comments">Loop while Transfer State is STARTED</stringProp>
           </WhileController>
@@ -781,16 +781,16 @@ ${__jm__Transfer_State_Loop__idx} &lt; ${MAX_TRANSFER_POLL_COUNT})}</stringProp>
             <stringProp name="cacheKey">true</stringProp>
             <stringProp name="script">var currentState = vars.get(&quot;TRANSFER_STATE&quot;);
 
-if(!&quot;STARTED&quot;.equals( currentState)) {
+if(!&quot;COMPLETED&quot;.equals( currentState)) {
 	SampleResult.setSuccessful(false);
-	SampleResult.setResponseData(&quot;Transfer State is not &apos;STARTED&apos; after ${vars.get(&apos;MAX_TRANSFER_POLL_COUNT&apos;)} attempts. Current State: ${currentState}&quot;);
+	SampleResult.setResponseData(&quot;Transfer State is not &apos;COMPLETED&apos; after ${vars.get(&apos;MAX_TRANSFER_POLL_COUNT&apos;)} attempts. Current State: ${currentState}&quot;);
 }
 </stringProp>
           </JSR223Sampler>
           <hashTree/>
         </hashTree>
         <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
-          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <boolProp name="ResultCollector.error_logging">true</boolProp>
           <objProp>
             <name>saveConfig</name>
             <value class="SampleSaveConfiguration">
@@ -803,27 +803,30 @@ if(!&quot;STARTED&quot;.equals( currentState)) {
               <message>true</message>
               <threadName>true</threadName>
               <dataType>true</dataType>
-              <encoding>false</encoding>
+              <encoding>true</encoding>
               <assertions>true</assertions>
               <subresults>true</subresults>
-              <responseData>false</responseData>
-              <samplerData>false</samplerData>
-              <xml>false</xml>
-              <fieldNames>true</fieldNames>
-              <responseHeaders>false</responseHeaders>
-              <requestHeaders>false</requestHeaders>
+              <responseData>true</responseData>
+              <samplerData>true</samplerData>
+              <xml>true</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>true</responseHeaders>
+              <requestHeaders>true</requestHeaders>
               <responseDataOnError>false</responseDataOnError>
               <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
               <assertionsResultsToSave>0</assertionsResultsToSave>
               <bytes>true</bytes>
               <sentBytes>true</sentBytes>
               <url>true</url>
+              <fileName>true</fileName>
+              <hostname>true</hostname>
               <threadCounts>true</threadCounts>
+              <sampleCount>true</sampleCount>
               <idleTime>true</idleTime>
               <connectTime>true</connectTime>
             </value>
           </objProp>
-          <stringProp name="filename"></stringProp>
+          <stringProp name="filename">output/measurement_interval_oem_plants_errors.xml</stringProp>
         </ResultCollector>
         <hashTree/>
         <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
@@ -1109,7 +1112,7 @@ if(!&quot;STARTED&quot;.equals( currentState)) {
           <hashTree/>
         </hashTree>
         <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
-          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <boolProp name="ResultCollector.error_logging">true</boolProp>
           <objProp>
             <name>saveConfig</name>
             <value class="SampleSaveConfiguration">
@@ -1122,27 +1125,30 @@ if(!&quot;STARTED&quot;.equals( currentState)) {
               <message>true</message>
               <threadName>true</threadName>
               <dataType>true</dataType>
-              <encoding>false</encoding>
+              <encoding>true</encoding>
               <assertions>true</assertions>
               <subresults>true</subresults>
-              <responseData>false</responseData>
-              <samplerData>false</samplerData>
-              <xml>false</xml>
-              <fieldNames>true</fieldNames>
-              <responseHeaders>false</responseHeaders>
-              <requestHeaders>false</requestHeaders>
+              <responseData>true</responseData>
+              <samplerData>true</samplerData>
+              <xml>true</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>true</responseHeaders>
+              <requestHeaders>true</requestHeaders>
               <responseDataOnError>false</responseDataOnError>
               <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
               <assertionsResultsToSave>0</assertionsResultsToSave>
               <bytes>true</bytes>
               <sentBytes>true</sentBytes>
               <url>true</url>
+              <fileName>true</fileName>
+              <hostname>true</hostname>
               <threadCounts>true</threadCounts>
+              <sampleCount>true</sampleCount>
               <idleTime>true</idleTime>
               <connectTime>true</connectTime>
             </value>
           </objProp>
-          <stringProp name="filename"></stringProp>
+          <stringProp name="filename">output/measurement_interval_supplier_plants_errors.xml</stringProp>
         </ResultCollector>
         <hashTree/>
         <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
@@ -1555,7 +1561,7 @@ if(!&quot;FINALIZED&quot;.equals( currentState)) {
         </TransactionController>
         <hashTree>
           <WhileController guiclass="WhileControllerGui" testclass="WhileController" testname="Transfer_State_Loop" enabled="true">
-            <stringProp name="WhileController.condition">${__jexl3(&quot;${TRANSFER_STATE}&quot; != &quot;STARTED&quot; &amp;&amp; 
+            <stringProp name="WhileController.condition">${__jexl3(&quot;${TRANSFER_STATE}&quot; != &quot;COMPLETED&quot; &amp;&amp; 
 ${__jm__Transfer_State_Loop__idx} &lt; ${MAX_TRANSFER_POLL_COUNT})}</stringProp>
             <stringProp name="TestPlan.comments">Loop while Transfer State is STARTED</stringProp>
           </WhileController>
@@ -1611,16 +1617,16 @@ ${__jm__Transfer_State_Loop__idx} &lt; ${MAX_TRANSFER_POLL_COUNT})}</stringProp>
             <stringProp name="cacheKey">true</stringProp>
             <stringProp name="script">var currentState = vars.get(&quot;TRANSFER_STATE&quot;);
 
-if(!&quot;STARTED&quot;.equals( currentState)) {
+if(!&quot;COMPLETED&quot;.equals( currentState)) {
 	SampleResult.setSuccessful(false);
-	SampleResult.setResponseData(&quot;Transfer State is not &apos;STARTED&apos; after ${vars.get(&apos;MAX_TRANSFER_POLL_COUNT&apos;)} attempts. Current State: ${currentState}&quot;);
+	SampleResult.setResponseData(&quot;Transfer State is not &apos;COMPLETED&apos; after ${vars.get(&apos;MAX_TRANSFER_POLL_COUNT&apos;)} attempts. Current State: ${currentState}&quot;);
 }
 </stringProp>
           </JSR223Sampler>
           <hashTree/>
         </hashTree>
         <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
-          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <boolProp name="ResultCollector.error_logging">true</boolProp>
           <objProp>
             <name>saveConfig</name>
             <value class="SampleSaveConfiguration">
@@ -1633,27 +1639,30 @@ if(!&quot;STARTED&quot;.equals( currentState)) {
               <message>true</message>
               <threadName>true</threadName>
               <dataType>true</dataType>
-              <encoding>false</encoding>
+              <encoding>true</encoding>
               <assertions>true</assertions>
               <subresults>true</subresults>
-              <responseData>false</responseData>
-              <samplerData>false</samplerData>
-              <xml>false</xml>
-              <fieldNames>true</fieldNames>
-              <responseHeaders>false</responseHeaders>
-              <requestHeaders>false</requestHeaders>
+              <responseData>true</responseData>
+              <samplerData>true</samplerData>
+              <xml>true</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>true</responseHeaders>
+              <requestHeaders>true</requestHeaders>
               <responseDataOnError>false</responseDataOnError>
               <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
               <assertionsResultsToSave>0</assertionsResultsToSave>
               <bytes>true</bytes>
               <sentBytes>true</sentBytes>
               <url>true</url>
+              <fileName>true</fileName>
+              <hostname>true</hostname>
               <threadCounts>true</threadCounts>
+              <sampleCount>true</sampleCount>
               <idleTime>true</idleTime>
               <connectTime>true</connectTime>
             </value>
           </objProp>
-          <stringProp name="filename"></stringProp>
+          <stringProp name="filename">output/measurement_interval_supplier_fleet_manager_errors.xml</stringProp>
         </ResultCollector>
         <hashTree/>
         <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
