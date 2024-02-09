@@ -263,7 +263,7 @@
           </ResponseAssertion>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Create Policy" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Create Policy" enabled="false">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -336,7 +336,7 @@
           </ResponseAssertion>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Create Contract Definitiion" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Create Contract Definitiion" enabled="false">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -725,7 +725,7 @@ if(!&quot;FINALIZED&quot;.equals( currentState)) {
         </TransactionController>
         <hashTree>
           <WhileController guiclass="WhileControllerGui" testclass="WhileController" testname="Transfer_State_Loop" enabled="true">
-            <stringProp name="WhileController.condition">${__jexl3(&quot;${TRANSFER_STATE}&quot; != &quot;COMPLETED&quot; &amp;&amp; 
+            <stringProp name="WhileController.condition">${__jexl3(&quot;${TRANSFER_STATE}&quot; != &quot;STARTED&quot; &amp;&amp; 
 ${__jm__Transfer_State_Loop__idx} &lt; ${MAX_TRANSFER_POLL_COUNT})}</stringProp>
             <stringProp name="TestPlan.comments">Loop while Transfer State is STARTED</stringProp>
           </WhileController>
@@ -781,7 +781,7 @@ ${__jm__Transfer_State_Loop__idx} &lt; ${MAX_TRANSFER_POLL_COUNT})}</stringProp>
             <stringProp name="cacheKey">true</stringProp>
             <stringProp name="script">var currentState = vars.get(&quot;TRANSFER_STATE&quot;);
 
-if(!&quot;COMPLETED&quot;.equals( currentState)) {
+if(!&quot;STARTED&quot;.equals( currentState)) {
 	SampleResult.setSuccessful(false);
 	SampleResult.setResponseData(&quot;Transfer State is not &apos;COMPLETED&apos; after ${vars.get(&apos;MAX_TRANSFER_POLL_COUNT&apos;)} attempts. Current State: ${currentState}&quot;);
 }
@@ -976,7 +976,7 @@ if(!&quot;COMPLETED&quot;.equals( currentState)) {
           </ResponseAssertion>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Create Policy" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Create Policy" enabled="false">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -1049,7 +1049,7 @@ if(!&quot;COMPLETED&quot;.equals( currentState)) {
           </ResponseAssertion>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Create Contract Definitiion" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Create Contract Definitiion" enabled="false">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -1561,7 +1561,7 @@ if(!&quot;FINALIZED&quot;.equals( currentState)) {
         </TransactionController>
         <hashTree>
           <WhileController guiclass="WhileControllerGui" testclass="WhileController" testname="Transfer_State_Loop" enabled="true">
-            <stringProp name="WhileController.condition">${__jexl3(&quot;${TRANSFER_STATE}&quot; != &quot;COMPLETED&quot; &amp;&amp; 
+            <stringProp name="WhileController.condition">${__jexl3(&quot;${TRANSFER_STATE}&quot; != &quot;STARTED&quot; &amp;&amp; 
 ${__jm__Transfer_State_Loop__idx} &lt; ${MAX_TRANSFER_POLL_COUNT})}</stringProp>
             <stringProp name="TestPlan.comments">Loop while Transfer State is STARTED</stringProp>
           </WhileController>
@@ -1617,7 +1617,7 @@ ${__jm__Transfer_State_Loop__idx} &lt; ${MAX_TRANSFER_POLL_COUNT})}</stringProp>
             <stringProp name="cacheKey">true</stringProp>
             <stringProp name="script">var currentState = vars.get(&quot;TRANSFER_STATE&quot;);
 
-if(!&quot;COMPLETED&quot;.equals( currentState)) {
+if(!&quot;STARTED&quot;.equals( currentState)) {
 	SampleResult.setSuccessful(false);
 	SampleResult.setResponseData(&quot;Transfer State is not &apos;COMPLETED&apos; after ${vars.get(&apos;MAX_TRANSFER_POLL_COUNT&apos;)} attempts. Current State: ${currentState}&quot;);
 }
