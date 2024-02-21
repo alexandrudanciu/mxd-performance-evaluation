@@ -66,7 +66,7 @@ During the tear-down phase, all previously created assets, policies and contract
 | BACKEND_SERVICE                     |  URL to reference the backend system of the EDCs.  | 
 | MAX_NEGOTIATION_POLL_COUNT                     | Number of maximum status checks of "FINALIZED" state of the negotiation between the two initiated EDCs Alice and Bob. |
 | MAX_TRANSFER_POLL_COUNT                     | Number of maximum status checks of "FINALIZED" state of the transfer between the two initiated EDCs Alice and Bob. |
-| INTERVALS_PER_SECOND                     | Number of simulated time intervals per second.  |
+| INTERVALS_PER_MINUTE                     | Number of simulated time intervals per minute.  |
 
 ### OEM Parameters
 

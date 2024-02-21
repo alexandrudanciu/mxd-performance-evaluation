@@ -41,9 +41,9 @@
             <stringProp name="Argument.value">${__P(THREAD_COUNT, 1)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="INTERVALS_PER_SECOND" elementType="Argument">
-            <stringProp name="Argument.name">INTERVALS_PER_SECOND</stringProp>
-            <stringProp name="Argument.value">${__P(INTERVALS_PER_SECOND, 10)}</stringProp>
+          <elementProp name="INTERVALS_PER_MINUTE" elementType="Argument">
+            <stringProp name="Argument.name">INTERVALS_PER_MINUTE</stringProp>
+            <stringProp name="Argument.value">${__P(INTERVALS_PER_MINUTE, 10)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="OEM_MANAGEMENT_URL" elementType="Argument">
@@ -161,10 +161,18 @@
         <stringProp name="ThreadGroup.num_threads">${OEM_PLANTS}</stringProp>
       </ThreadGroup>
       <hashTree>
-        <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Konstanter Timer" enabled="true">
-          <stringProp name="ConstantTimer.delay">${__jexl2((${EXPERIMENT_DURATION_SEC}/(${EXPERIMENT_DURATION_SEC}/${INTERVALS_PER_SECOND}))-${INTERVALS_PER_SECOND})}</stringProp>
-        </ConstantTimer>
-        <hashTree/>
+        <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="Dummy Sampler" enabled="true">
+          <boolProp name="displayJMeterProperties">false</boolProp>
+          <boolProp name="displayJMeterVariables">true</boolProp>
+          <boolProp name="displaySystemProperties">false</boolProp>
+        </DebugSampler>
+        <hashTree>
+          <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer" enabled="true">
+            <intProp name="calcMode">0</intProp>
+            <stringProp name="throughput">${INTERVALS_PER_MINUTE}</stringProp>
+          </ConstantThroughputTimer>
+          <hashTree/>
+        </hashTree>
         <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="User Parameters" enabled="true">
           <collectionProp name="UserParameters.names">
             <stringProp name="-601834919">NEGOTIATION_ID</stringProp>
@@ -483,7 +491,6 @@
 			&quot;@type&quot;: &quot;odrl:Set&quot;,&#xd;
 			&quot;@id&quot;: &quot;${CONSUME_COUNTER}&quot;,&#xd;
 			&quot;odrl:permission&quot; : {&#xd;
-				&quot;odrl:target&quot;: &quot;${CONSUME_COUNTER}&quot;,&#xd;
 				&quot;odrl:action&quot;: {&#xd;
 					&quot;odrl:type&quot;: &quot;USE&quot;&#xd;
 				},&#xd;
@@ -883,10 +890,18 @@ if(!&quot;STARTED&quot;.equals( currentState)) {
         <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
       </ThreadGroup>
       <hashTree>
-        <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Konstanter Timer" enabled="true">
-          <stringProp name="ConstantTimer.delay">${__jexl2((${EXPERIMENT_DURATION_SEC}/(${EXPERIMENT_DURATION_SEC}/${INTERVALS_PER_SECOND}))-${INTERVALS_PER_SECOND})}</stringProp>
-        </ConstantTimer>
-        <hashTree/>
+        <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="Dummy Sampler" enabled="true">
+          <boolProp name="displayJMeterProperties">false</boolProp>
+          <boolProp name="displayJMeterVariables">true</boolProp>
+          <boolProp name="displaySystemProperties">false</boolProp>
+        </DebugSampler>
+        <hashTree>
+          <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer" enabled="true">
+            <intProp name="calcMode">0</intProp>
+            <stringProp name="throughput">${INTERVALS_PER_MINUTE}</stringProp>
+          </ConstantThroughputTimer>
+          <hashTree/>
+        </hashTree>
         <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="User Parameters" enabled="true">
           <collectionProp name="UserParameters.names">
             <stringProp name="-601834919">NEGOTIATION_ID</stringProp>
@@ -1205,6 +1220,18 @@ if(!&quot;STARTED&quot;.equals( currentState)) {
         <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
       </ThreadGroup>
       <hashTree>
+        <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="Dummy Sampler" enabled="true">
+          <boolProp name="displayJMeterProperties">false</boolProp>
+          <boolProp name="displayJMeterVariables">true</boolProp>
+          <boolProp name="displaySystemProperties">false</boolProp>
+        </DebugSampler>
+        <hashTree>
+          <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer" enabled="true">
+            <intProp name="calcMode">0</intProp>
+            <stringProp name="throughput">${INTERVALS_PER_MINUTE}</stringProp>
+          </ConstantThroughputTimer>
+          <hashTree/>
+        </hashTree>
         <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="ID Counter" enabled="true">
           <stringProp name="CounterConfig.start">1</stringProp>
           <stringProp name="CounterConfig.end"></stringProp>
@@ -1319,7 +1346,6 @@ if(!&quot;STARTED&quot;.equals( currentState)) {
 			&quot;@type&quot;: &quot;odrl:Set&quot;,&#xd;
 			&quot;@id&quot;: &quot;${CONSUME_COUNT}&quot;,&#xd;
 			&quot;odrl:permission&quot; : {&#xd;
-				&quot;odrl:target&quot;: &quot;${CONSUME_COUNT}&quot;,&#xd;
 				&quot;odrl:action&quot;: {&#xd;
 					&quot;odrl:type&quot;: &quot;USE&quot;&#xd;
 				},&#xd;
