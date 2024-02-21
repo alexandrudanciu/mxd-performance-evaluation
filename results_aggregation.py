@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt # to install: pip3 install plotly
 import numpy as np
 import mplcursors  # to install: pip3 install mplcursors
 import os
+import random
 
 ############ Required Input ############
 root_folder = './Ergebnisse'
@@ -61,7 +62,8 @@ for action_to_consider in processes:
 
         # Plots the statistics data as a line plot and a scatter plot
         plt.plot([s[0] for s in stats], [s[1] for s in stats])
-        scatter = plt.scatter([s[0] for s in stats], [s[1] for s in stats], color='red')
+        colors = [ (random.random(), random.random(), random.random()) for _ in range(len(stats)) ]
+        scatter = plt.scatter([s[0] for s in stats], [s[1] for s in stats], color=colors)
 
         # Adds labels to each point on the scatter plot (that x-axis matches OEM_PLANTS values)
         for i, text in enumerate(labels):
