@@ -467,6 +467,20 @@
             <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
           </JSONPostProcessor>
           <hashTree/>
+          <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="Verify Contract Offer Id" enabled="true">
+            <stringProp name="scriptLanguage">groovy</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="script">var offerId = vars.get(&quot;CONTRACT_OFFER_ID&quot;)
+
+if(offerId == null || offerId.isEmpty()) {
+	AssertionResult.setFailure(true)
+	AssertionResult.setFailureMessage(&quot;CONTRACT_OFFER_ID is missing&quot;)
+}
+</stringProp>
+          </JSR223Assertion>
+          <hashTree/>
         </hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Initiate Negotiation" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
@@ -1321,6 +1335,20 @@ if(!&quot;STARTED&quot;.equals( currentState)) {
             <stringProp name="JSONPostProcessor.jsonPathExprs">${__eval($[&apos;dcat:dataset&apos;][?(@.id==&quot;${CONSUME_COUNT}&quot;)][&apos;odrl:hasPolicy&apos;][&apos;@id&apos;])}</stringProp>
             <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
           </JSONPostProcessor>
+          <hashTree/>
+          <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="Verify Contract Offer Id" enabled="true">
+            <stringProp name="scriptLanguage">groovy</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="script">var offerId = vars.get(&quot;CONTRACT_OFFER_ID&quot;)
+
+if(offerId == null || offerId.isEmpty()) {
+	AssertionResult.setFailure(true)
+	AssertionResult.setFailureMessage(&quot;CONTRACT_OFFER_ID is missing&quot;)
+}
+</stringProp>
+          </JSR223Assertion>
           <hashTree/>
         </hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Initiate Negotiation" enabled="true">
